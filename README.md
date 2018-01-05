@@ -6,3 +6,15 @@ React技术栈工具
 ```
   https://nodejs.org/zh-cn
 ```
+
+## create-react-app - 官方React项目创建工具
+用于快速创建React的Hello World程序
+```
+1. 安装
+sudo npm install -g create-react-app
+2. 创建项目
+create-react-app my-app
+3. 编译并运行项目
+cd my-app
+npm satrt
+```
