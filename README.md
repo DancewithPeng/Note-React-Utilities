@@ -29,7 +29,11 @@ sudo npm install -g create-react-app
 ```
 create-react-app <project name>
 ```
-3. 编译并运行项目
+3. 常见TypeScript的React项目
+```
+create-react-app <project name> --scripts-version=react-scripts-ts
+```
+4. 编译并运行项目
 ```
 cd <project name>
 npm satrt
