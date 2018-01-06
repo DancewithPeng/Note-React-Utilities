@@ -7,6 +7,12 @@ React技术栈工具
 https://nodejs.org/zh-cn
 ```
 
+## yarn - 包管理工具
+也是基于Node.js实现的，效率比npm高。安装是用brew进行安装
+```
+brew install yarn
+```
+
 ## create-react-app - 官方React项目创建工具
 用于快速创建React的Hello World程序
 1. 安装
