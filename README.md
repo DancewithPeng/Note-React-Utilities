@@ -27,10 +27,26 @@ sudo npm install -g create-react-app
 ```
 2. 创建项目
 ```
-create-react-app my-app
+create-react-app <project name>
 ```
 3. 编译并运行项目
 ```
-cd my-app
+cd <project name>
+npm satrt
+```
+
+## dva - 阿里出品的React + Redux 的项目创建工具
+用于快速创建React + Redux的项目
+1. 安装
+```
+sudo npm install -g dva-cli
+```
+2. 创建项目
+```
+dva new <project name>
+```
+3. 编译并运行项目
+```
+cd <project name>
 npm satrt
 ```
