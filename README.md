@@ -9,6 +9,7 @@ https://nodejs.org/zh-cn
 
 ## yarn - 包管理工具
 也是基于Node.js实现的，效率比npm高。
+
 brew安装，但是这种方式会更新node到最新版本
 ```
 brew install yarn
