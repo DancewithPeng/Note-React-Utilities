@@ -8,9 +8,14 @@ https://nodejs.org/zh-cn
 ```
 
 ## yarn - 包管理工具
-也是基于Node.js实现的，效率比npm高。安装是用brew进行安装
+也是基于Node.js实现的，效率比npm高。
+brew安装，但是这种方式会更新node到最新版本
 ```
 brew install yarn
+```
+npm安装
+```
+npm install -g yarn
 ```
 
 ## create-react-app - 官方React项目创建工具
