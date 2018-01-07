@@ -62,7 +62,7 @@ npm install --save-dev webpack
 ```
 或
 ```
-yarn add -dev webpack
+yarn add --dev webpack
 ```
 
 
