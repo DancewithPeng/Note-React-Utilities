@@ -39,7 +39,7 @@ cd <project name>
 npm satrt
 ```
 
-## dva - 阿里出品的React + Redux 的项目创建工具
+## dva - 阿里出品的React + Redux 的项目架构
 用于快速创建React + Redux的项目
 1. 安装
 ```
@@ -54,3 +54,16 @@ dva new <project name>
 cd <project name>
 npm satrt
 ```
+
+## webpack - 前端强大打包工具，可以把项目中不同的模块和包，统一打包成浏览器支持的js代码
+1. 安装
+```
+npm install --save-dev webpack
+```
+或
+```
+yarn add -dev webpack
+```
+
+
+
