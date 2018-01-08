@@ -79,8 +79,9 @@ yarn add --dev babel-preset-react
 
 ## style-loader & css-loader - webpack的css样式加载模块
 两者通常同时配置
-style-loader 把css文件中的样式添加到js文件中
-css-loader   在js文件中可以用`improt './mystyle.css'`的语法导入样式表
+- style-loader 把css文件中的样式添加到js文件中
+- css-loader   在js文件中可以用`improt './mystyle.css'`的语法导入样式表
+
 配置前先安装模块
 ```
 yarn add --dev style-loader css-loader
