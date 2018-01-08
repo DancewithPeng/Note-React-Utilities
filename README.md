@@ -65,5 +65,15 @@ npm install --save-dev webpack
 yarn add --dev webpack
 ```
 
+## babel - js代码编译器，会把ES5、ES6的代码转化为ES代码，以兼容不同的浏览器
+在webpack中，可以使用babel-loader来处理js和jsx文件，以兼容浏览器
 
+要在webpack配置babel-loader需要安装模块
+```
+yarn add --dev babel-core babel-loader babel-preset-env
+```
+要想babel-loader处理react文件，需要安装对应的babel模块
+```
+yarn add --dev babel-preset-react
+```
 
