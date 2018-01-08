@@ -77,12 +77,15 @@ yarn add --dev babel-core babel-loader babel-preset-env
 yarn add --dev babel-preset-react
 ```
 
-## style-loader - webpack的css样式加载模块，可以把css样式打包到js文件中
+## style-loader & css-loader - webpack的css样式加载模块
+两者通常同时配置
+style-loader 把css文件中的样式添加到js文件中
+css-loader   在js文件中可以用`improt './mystyle.css'`的语法导入样式表
 配置前先安装模块
 ```
-yarn add --dev style-loader
+yarn add --dev style-loader css-loader
 ```
-webpack中配置style-loader
+webpack中配置style-loader和css-loader，style-loader在前，css-loader在后，顺序不能乱
 ```
 module.exports = {
    ...
@@ -92,36 +95,12 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    ...
                     {
                         loader: "style-loader"
-                    }
-                ]
-            }
-        ]
-    }
-};
-```
-
-## css-loader - webpack的css样式加载模块，可以在js文件中通过`import './my-class.css'`语法导入样式
-配置前先安装模块
-```
-yarn add --dev css-loader
-```
-webpack中配置css-loader
-```
-module.exports = {
-   ...
-    module: {
-        rules: [
-            ...
-            {
-                test: /\.css$/,
-                use: [
-                    ...
+                    },
                     {
                         loader: "css-loader"
-                    }
+                    },
                 ]
             }
         ]
