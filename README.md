@@ -65,6 +65,63 @@ npm install --save-dev webpack
 yarn add --dev webpack
 ```
 
+#### webpack插件(Plugin)
+webpack的plugin和loader是两大块主要内容
+- loader 是针对不同的文做不同的处理
+- plugin 是针对整个项目做处理
+
+webpack中配置插件，这里配置了webpack自带的banner插件，会在打包好的js文件的开始加入指定的文本，如版权信息
+```js
+const webpack = require('webpack');
+
+module.exports = {
+    ...
+    module: {
+        rules: [
+            ...
+        ]
+    },
+    plugins: [
+        new webpack.BannerPlugin('版权所有，翻版必究')
+    ],
+};
+```
+
+webpack自带的插件还有：
+
+<!-- ** -->
+
+其他webpack插件：
+
+**HtmlWebpackPlugin**
+
+这个插件可以指定webpack打包时的index.html模版
+
+安装
+```
+yarn add --dev html-webpack-plugin
+```
+
+webpack配置
+```js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    ...
+    plugins: [
+        ...
+        new HtmlWebpackPlugin({
+            template: __dirname + "/app/index.html"// 指定模版文件
+        })
+    ],
+};
+```
+
+**HtmlWebpackPlugin**
+
+
+
+
 ## babel - js代码编译器，会把ES5、ES6的代码转化为ES代码，以兼容不同的浏览器
 在webpack中，可以使用babel-loader来处理js和jsx文件，以兼容浏览器
 
@@ -87,7 +144,7 @@ yarn add --dev babel-preset-react
 yarn add --dev style-loader css-loader
 ```
 webpack中配置style-loader和css-loader，style-loader在前，css-loader在后，顺序不能乱
-```
+```js
 module.exports = {
    ...
     module: {
@@ -112,7 +169,7 @@ module.exports = {
 ## css modules - css模块化的实践
 css modules会自动把给对应的class添加上不同的名字，以防止css命名全局污染
 css modules只能配置在css-loader中
-```
+```js
 module.exports = {
    ...
     module: {
@@ -138,7 +195,7 @@ module.exports = {
 };
 ```
 webpack中有一种更简洁的方式同时配置style-loader、css-loader、css modules的方式：
-```
+```js
 module.exports = {
    ...
     module: {
@@ -154,7 +211,7 @@ module.exports = {
 ```
 
 ## less - css的扩展语法，让css开发具备基本的逻辑编程能力
-less工具是一个转换器，把less的语法转换成css标准语法，less文件后缀是`.less`
+less编译工具是一个转换器，把less的语法转换成css标准语法，less文件后缀是`.less`
 
 全局安装
 ```
@@ -164,3 +221,97 @@ yarn grobal add less
 ```
 lessc style.less > style.css
 ```
+
+#### 在webpack中的配置
+安装loader
+```
+yarn add --dev less-loader less
+```
+webpack配置
+```js
+module.exports = {
+    ...
+    module: {
+        rules: [{
+            test: /\.less$/,
+            loader: "style-loader!css-loader!less-loader"
+        }]
+    }
+};
+```
+
+## sass - css的扩展语法，让css具备变量、继承等特性
+sass编译工具是一个转换器，把cass语法转换成css标准语法，sass文件后缀是`.sass`或`.scss`
+
+全局安装，sass是用ruby语言编写，需要ruby环境
+
+
+需要同时安装`sass`和`compass`
+
+```
+gem install sass
+gem install compass
+```
+
+#### 在webpack中的配置
+安装loader
+```
+yarn add --dev sass-loader node-sass
+```
+webpack配置
+```js
+module.exports = {
+    ...
+    module: {
+        rules: [{
+            test: /\.scss$/,
+            loader: "style-loader!css-loader!sass-loader"
+        }]
+    }
+};
+```
+
+## PostCSS - css的统一扩展平台，具体功能依赖于它的插件的实现
+在webpack中配置
+
+安装  
+```
+yarn add --dev postcss-loader
+```
+
+webpack配置
+```js
+module.exports = {
+   ...
+    module: {
+        rules: [
+            ...
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader?modules!postcss-loader"
+            }
+        ]
+    }
+};
+```
+
+
+#### postcss-loader配置
+postcss-loader的配置文件为`postcss.config.js`，webpack会自动加载它  
+
+配置`autoprefixer`插件，这个插件会自动给不同浏览器支持的样式添加对应的前缀
+
+安装
+```
+yarn add --dev autoprefixer
+```
+
+在`postcss.config.js`文件中配置
+```js
+module.exports = {
+    plugins: [
+        require('autoprefixer')
+    ]
+};
+```
+
