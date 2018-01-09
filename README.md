@@ -108,3 +108,47 @@ module.exports = {
     }
 };
 ```
+
+## css modules - css模块化的实践
+css modules会自动把给对应的class添加上不同的名字，以防止css命名全局污染
+css modules只能配置在css-loader中
+```
+module.exports = {
+   ...
+    module: {
+        rules: [
+            ...
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: true,                                     // 指定启用css modules
+                            localIdentName: '[name]__[local]--[hash:base64:5]' // 指定css的类名格式
+                        }
+                    },
+                ]
+            }
+        ]
+    }
+};
+```
+webpack中有一种更简洁的方式同时配置style-loader、css-loader、css modules的方式：
+```
+module.exports = {
+   ...
+    module: {
+        rules: [
+            ...
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader?modules"
+            }
+        ]
+    }
+};
+```
