@@ -152,3 +152,14 @@ module.exports = {
     }
 };
 ```
+
+## less - css的扩展语法，让css开发具备基本的逻辑编程能力
+less工具是一个转换器，把less的语法转换成css标准语法，less文件后缀是`.less`
+全局安装
+```
+yarn grobal add less
+```
+转换
+```
+lessc style.less > style.css
+```
