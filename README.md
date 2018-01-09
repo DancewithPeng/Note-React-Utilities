@@ -89,7 +89,49 @@ module.exports = {
 
 webpack自带的插件还有：
 
-<!-- ** -->
+**OccurenceOrderPlugin**
+
+此插件会自动给组件自动分配ID，会给最常用的组件分配最小的ID
+
+配置：
+```js
+const webpack = require('webpack');
+
+module.exports = {
+    ...
+    module: {
+        rules: [
+            ...
+        ]
+    },
+    plugins: [
+        ...
+        new webpack.optimize.OccurrenceOrderPlugin(),
+    ],
+};
+```
+
+**UglifyJsPlugin**
+
+此插件可以压缩代码
+
+配置：
+```js
+const webpack = require('webpack');
+
+module.exports = {
+    ...
+    module: {
+        rules: [
+            ...
+        ]
+    },
+    plugins: [
+        ...
+        new webpack.optimize.UglifyJsPlugin(),
+    ],
+};
+```
 
 其他webpack插件：
 
@@ -117,8 +159,66 @@ module.exports = {
 };
 ```
 
-**HtmlWebpackPlugin**
+**ExtractTextPlugin**
 
+分离css和js文件的插件
+
+安装
+```
+yarn add --dev extract-text-webpack-plugin
+```
+配置
+```js
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
+module.exports = {
+    ...
+    module: {
+        rules: [
+            ...
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: ["css-loader?modules", "postcss-loader"]
+                })
+            }
+        ]
+    },
+    plugins: [
+        ...
+        new ExtractTextPlugin("styles.css"),
+    ],
+};
+```
+
+
+**clean-webpack-plugin**
+
+每次打包时清除文件的插件
+
+安装
+```
+yarn add --dev clean-webpack-plugin
+```
+配置
+```js
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+
+module.exports = {
+    ...
+    plugins: [
+        new CleanWebpackPlugin(["build/*.css", "build/*.js"], {
+            exclude: ["index.html"],
+            verbose: true,
+            dry: true,            
+        }),
+        ...
+    ],
+};
+```
 
 
 
