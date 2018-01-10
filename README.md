@@ -434,3 +434,30 @@ module.exports = {
 };
 ```
 
+# Ant Design - 阿里出品的UI框架
+
+安装
+```
+yarn add antd
+```
+
+antd的css样式依赖于`babel-plugin-import`插件的导入，所以同时安装`babel-plugin-import`插件
+```
+yarn add --dev babel-plugin-import
+```
+
+在`.babelrc`中配置`babel-plugin-import`插件
+```json
+{
+    "plugins": [
+        ...
+        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` 会加载 less 文件
+    ]
+}
+```
+
+然后就可以愉快地使用antd啦
+```js
+import { DatePicker } from 'antd';
+ReactDOM.render(<DatePicker />, mountNode);
+```
