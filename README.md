@@ -1,13 +1,13 @@
-# Note-React-Utilities
-React技术栈工具
+# <center>Note-React-Utilities</center>
+<center>React技术栈工具集</center>
 
-## npm - 包管理工具(Node Package Manager)
+# npm - 包管理工具(Node Package Manager)
 这个本来是Node.js的包管理工具，所以要用这个工具，就到Node.js官网安装Node.js环境，就带有npm工具
 ```
 https://nodejs.org/zh-cn
 ```
 
-## yarn - 包管理工具
+# yarn - 包管理工具
 也是基于Node.js实现的，效率比npm高。
 
 brew安装，但是这种方式会更新node到最新版本
@@ -19,7 +19,7 @@ npm安装
 npm install -g yarn
 ```
 
-## create-react-app - 官方React项目创建工具
+# create-react-app - 官方React项目创建工具
 用于快速创建React的Hello World程序
 1. 安装
 ```
@@ -39,7 +39,7 @@ cd <project name>
 npm satrt
 ```
 
-## dva - 阿里出品的React + Redux 的项目架构
+# dva - 阿里出品的React + Redux 的项目架构
 用于快速创建React + Redux的项目
 1. 安装
 ```
@@ -55,7 +55,26 @@ cd <project name>
 npm satrt
 ```
 
-## webpack - 前端强大打包工具，可以把项目中不同的模块和包，统一打包成浏览器支持的js代码
+4. 在webpack中配置
+
+添加`dva`
+```
+yarn add dva
+```
+
+添加相关插件`babel-plugin-dva-hmr`和`redbox-react`
+```
+yarn add --dev babel-plugin-dva-hmr redbox-react@1.x
+```
+
+在.babelrc中配置`babel-plugin-dva-hmr`
+```json
+{
+    "plugins": ["dva-hmr"]
+}
+```
+
+# webpack - 前端强大打包工具，可以把项目中不同的模块和包，统一打包成浏览器支持的js代码
 1. 安装
 ```
 npm install --save-dev webpack
@@ -222,7 +241,7 @@ module.exports = {
 
 
 
-## babel - js代码编译器，会把ES5、ES6的代码转化为ES代码，以兼容不同的浏览器
+# babel - js代码编译器，会把ES5、ES6的代码转化为ES代码，以兼容不同的浏览器
 在webpack中，可以使用babel-loader来处理js和jsx文件，以兼容浏览器
 
 要在webpack配置babel-loader需要安装模块
@@ -234,7 +253,7 @@ yarn add --dev babel-core babel-loader babel-preset-env
 yarn add --dev babel-preset-react
 ```
 
-## style-loader & css-loader - webpack的css样式加载模块
+# style-loader & css-loader - webpack的css样式加载模块
 两者通常同时配置
 - style-loader 把css文件中的样式添加到js文件中
 - css-loader   在js文件中可以用`improt './mystyle.css'`的语法导入样式表
@@ -266,7 +285,7 @@ module.exports = {
 };
 ```
 
-## css modules - css模块化的实践
+# css modules - css模块化的实践
 css modules会自动把给对应的class添加上不同的名字，以防止css命名全局污染
 css modules只能配置在css-loader中
 ```js
@@ -310,7 +329,7 @@ module.exports = {
 };
 ```
 
-## less - css的扩展语法，让css开发具备基本的逻辑编程能力
+# less - css的扩展语法，让css开发具备基本的逻辑编程能力
 less编译工具是一个转换器，把less的语法转换成css标准语法，less文件后缀是`.less`
 
 全局安装
@@ -340,7 +359,7 @@ module.exports = {
 };
 ```
 
-## sass - css的扩展语法，让css具备变量、继承等特性
+# sass - css的扩展语法，让css具备变量、继承等特性
 sass编译工具是一个转换器，把cass语法转换成css标准语法，sass文件后缀是`.sass`或`.scss`
 
 全局安装，sass是用ruby语言编写，需要ruby环境
@@ -371,7 +390,7 @@ module.exports = {
 };
 ```
 
-## PostCSS - css的统一扩展平台，具体功能依赖于它的插件的实现
+# PostCSS - css的统一扩展平台，具体功能依赖于它的插件的实现
 在webpack中配置
 
 安装  
