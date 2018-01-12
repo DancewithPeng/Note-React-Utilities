@@ -456,6 +456,29 @@ yarn add --dev babel-plugin-import
 }
 ```
 
+> 注意：antd中的css不能用css modules，所以，需要在webpack额外配置它antd的css处理的loader
+>   ```js
+>   module.exports = {
+>    ...
+>    module: {
+>        rules: [
+>           ...
+>           {
+>               test: /\.css$/,
+>               exclude: /node_modules|antd\.css/
+>               loader: "style-loader!css-loader?modules!postcss-loader"
+>           },
+>           {
+>               test: /\.css$/,
+>               include: /node_modules|antd\.css/,               
+>               loader: "style-loader!css-loader"
+>           },
+>           ...
+>       ]
+>    }
+>   };
+>   ```
+
 然后就可以愉快地使用antd啦
 ```js
 import { DatePicker } from 'antd';
